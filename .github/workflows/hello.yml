@@ -1,0 +1,23 @@
+name: La mia prima Action
+
+# L'azione si avvia ogni volta che fai un push sul repository
+on: [push]
+
+jobs:
+  esegui-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Scarica il codice dal tuo repository
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      # Step 2: Prepara l'ambiente Python
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Step 3: Esegue il file che hai creato prima
+      - name: Esegui lo script
+        run: python main.py
